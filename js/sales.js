@@ -79,7 +79,7 @@ var locationTwo = {
       newEl.appendChild(newText);
       position.appendChild(newEl);
    }
-}
+};
 
 var locationThr = {
    loc: 'Powell\'s',
@@ -118,7 +118,7 @@ var locationThr = {
       newEl.appendChild(newText);
       position.appendChild(newEl);
    }
-}
+};
 var locationFou = {
    loc: 'St. John\'s',
    objNo: 3,
@@ -156,7 +156,7 @@ var locationFou = {
       newEl.appendChild(newText);
       position.appendChild(newEl);
    }
-}
+};
 var locationFiv = {
    loc: 'Waterfront',
    objNo: 4,
@@ -194,4 +194,11 @@ var locationFiv = {
       newEl.appendChild(newText);
       position.appendChild(newEl);
    }
-}
+};
+(function() {
+   locationOne.popPage();
+   locationTwo.popPage();
+   locationThr.popPage();
+   locationFou.popPage();
+   locationFiv.popPage();
+})();
