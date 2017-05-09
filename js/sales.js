@@ -1,5 +1,22 @@
 'use strict'
 
+var hrOpen = [ '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm' ];
+
+function CookieStore( loc, minCust, maxCust, aveCookieSale, hrSales, totalSales ) {
+   this.loc = loc;
+   this.minCust = minCust;
+   this.maxCust = maxCust;
+   this.aveCookieSale = aveCookieSale;
+   this.hrSales = hrSales;
+   this.totalSales = 0;
+}
+
+CookieStore.prototype.estSales = function () {
+   for ( var i = 0; i < hrOpen.length; i++) {
+         locationOne.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale));
+   }
+}
+
 var locationOne = {
    loc: 'PDX Airport',
    objNo: 0,
@@ -12,7 +29,6 @@ var locationOne = {
    estSales: function () {
       //Populates hrSales Array with randomly generated sales numbers for each hour
       for (var i = 0; i < this.hrsOpen; i++) {
-         locationOne.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale));
       }
    },
    total: function () {
@@ -50,35 +66,7 @@ var locationTwo = {
    aveCookieSale: 1.2,
    hrsOpen: 15,
    hrSales: [],
-   totalSales: 0,
-   estSales: function () {
-      for (var i = 0; i < this.hrsOpen; i++) {
-         this.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale));
-      }
-   },
-   total: function () {
-      for (var i = 0; i < this.hrSales.length; i++) {
-         this.totalSales += this.hrSales[i];
-      }
-   },
-   popPage: function () {
-      this.estSales();
-      this.total();
-      var positionHeading = document.getElementsByTagName('lh')[this.objNo];
-      var newULHeading = document.createTextNode(this.loc);
-      positionHeading.appendChild(newULHeading);
-      var position = document.getElementsByTagName('ul')[this.objNo];
-      for (var i = 0; i < this.hrsOpen; i++) {
-         var newEl = document.createElement('li');
-         var newText = document.createTextNode((i + 6) + ":00 hrs " + this.hrSales[i] + " cookies ");
-         newEl.appendChild(newText);
-         position.appendChild(newEl);
-      }
-      var newEl = document.createElement('li');
-      var newText = document.createTextNode('Total: ' + this.totalSales + ' Cookies sold.');
-      newEl.appendChild(newText);
-      position.appendChild(newEl);
-   }
+   totalSales: 0
 };
 
 var locationThr = {
@@ -89,35 +77,7 @@ var locationThr = {
    aveCookieSale: 3.7,
    hrsOpen: 15,
    hrSales: [],
-   totalSales: 0,
-   estSales: function () {
-      for (var i = 0; i < this.hrsOpen; i++) {
-         this.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale));
-      }
-   },
-   total: function () {
-      for (var i = 0; i < this.hrSales.length; i++) {
-         this.totalSales += this.hrSales[i];
-      }
-   },
-   popPage: function () {
-      this.estSales();
-      this.total();
-      var positionHeading = document.getElementsByTagName('lh')[this.objNo];
-      var newULHeading = document.createTextNode(this.loc);
-      positionHeading.appendChild(newULHeading);
-      var position = document.getElementsByTagName('ul')[this.objNo];
-      for (var i = 0; i < this.hrsOpen; i++) {
-         var newEl = document.createElement('li');
-         var newText = document.createTextNode((i + 6) + ":00 hrs " + this.hrSales[i] + " cookies ");
-         newEl.appendChild(newText);
-         position.appendChild(newEl);
-      }
-      var newEl = document.createElement('li');
-      var newText = document.createTextNode('Total: ' + this.totalSales + ' Cookies sold.');
-      newEl.appendChild(newText);
-      position.appendChild(newEl);
-   }
+   totalSales: 0
 };
 var locationFou = {
    loc: 'St. John\'s',
@@ -127,35 +87,7 @@ var locationFou = {
    aveCookieSale: 2.3,
    hrsOpen: 15,
    hrSales: [],
-   totalSales: 0,
-   estSales: function () {
-      for (var i = 0; i < this.hrsOpen; i++) {
-         this.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale))
-      }
-   },
-   total: function () {
-      for (var i = 0; i < this.hrSales.length; i++) {
-         this.totalSales += this.hrSales[i];
-      }
-   },
-   popPage: function () {
-      this.estSales();
-      this.total();
-      var positionHeading = document.getElementsByTagName('lh')[this.objNo];
-      var newULHeading = document.createTextNode(this.loc);
-      positionHeading.appendChild(newULHeading);
-      var position = document.getElementsByTagName('ul')[this.objNo];
-      for (var i = 0; i < this.hrsOpen; i++) {
-         var newEl = document.createElement('li');
-         var newText = document.createTextNode((i + 6) + ':00 hrs ' + this.hrSales[i] + ' cookies ');
-         newEl.appendChild(newText);
-         position.appendChild(newEl);
-      }
-      var newEl = document.createElement('li');
-      var newText = document.createTextNode('Total: ' + this.totalSales + ' Cookies sold.');
-      newEl.appendChild(newText);
-      position.appendChild(newEl);
-   }
+   totalSales: 0
 };
 var locationFiv = {
    loc: 'Waterfront',
@@ -165,35 +97,7 @@ var locationFiv = {
    aveCookieSale: 4.6,
    hrsOpen: 15,
    hrSales: [],
-   totalSales: 0,
-   estSales: function () {
-      for (var i = 0; i < this.hrsOpen; i++) {
-         this.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale));
-      }
-   },
-   total: function () {
-      for (var i = 0; i < this.hrSales.length; i++) {
-         this.totalSales += this.hrSales[i];
-      }
-   },
-   popPage: function () {
-      this.estSales();
-      this.total();
-      var positionHeading = document.getElementsByTagName('lh')[this.objNo];
-      var newULHeading = document.createTextNode(this.loc);
-      positionHeading.appendChild(newULHeading);
-      var position = document.getElementsByTagName('ul')[this.objNo];
-      for (var i = 0; i < this.hrsOpen; i++) {
-         var newEl = document.createElement('li');
-         var newText = document.createTextNode((i + 6) + ':00 hrs ' + this.hrSales[i] + ' cookies');
-         newEl.appendChild(newText);
-         position.appendChild(newEl);
-      }
-      var newEl = document.createElement('li');
-      var newText = document.createTextNode('Total: ' + this.totalSales + ' Cookies sold.');
-      newEl.appendChild(newText);
-      position.appendChild(newEl);
-   }
+   totalSales: 0
 };
 (function() {
    locationOne.popPage();
