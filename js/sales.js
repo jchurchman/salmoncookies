@@ -29,21 +29,11 @@ var locThr = new CookieStore('Powell\'s', 11, 38, 3.7);
 var locFou = new CookieStore('St. John\'s', 20, 38, 2.3);
 var locFiv = new CookieStore('Waterfront', 2, 16, 4.6);
 
-function topperBottoms() {
-   addToDOM('thead', 0, 'th', ' ');
-   addToDOM('tfoot', 0, 'th', 'Total: ');
-   for (var i = 0; i < stores.length; i++) {
-      addToDOM('thead', 0, 'th', stores[i].loc);
-      addToDOM('tfoot', 0, 'td', stores[i].totalSales);
-   }
-};
-
-function fillTable() {
+(function fillTable() {
    for (var g = 0; g < hrOpen.length; g++) {
       var spot = document.getElementById('tbody');
       var newEl = document.createElement('tr')
       newEl.setAttribute('id', 'tr');
-      console.log('newEl is ' + newEl);
       spot.appendChild(newEl);
    }
    for (var h = 0; h < hrOpen.length; h++) {
@@ -55,7 +45,28 @@ function fillTable() {
          addToDOM('tr', j, 'td', stores[i].hrSales[j]);
       }
    }
-}
+})();
+
+(function topperBottoms() {
+   addToDOM('thead', 0, 'th', ' ');
+   addToDOM('tfoot', 0, 'th', 'Total: ');
+   for (var i = 0; i < stores.length; i++) {
+      addToDOM('thead', 0, 'th', stores[i].loc);
+      addToDOM('tfoot', 0, 'td', stores[i].totalSales);
+   }
+})();
+
+(function stretchItOut() {
+   addToDOM('thead', 0, 'th', 'Hourly Totals');
+   addToDOM('tfoot', 0, 'th', ' ');
+   for (var h = 0; h < hrOpen.length; h++) {
+   var rowTotal = 0;
+      for (var i = 0; i < stores.length; i++) {
+         rowTotal += stores[i].hrSales[h];
+      }
+      addToDOM('tr', h, 'td', rowTotal);
+   }
+})();
 
 function addToDOM(tag, arrayno, el, text) {
    var spot = document.getElementsByTagName(tag)[arrayno];
@@ -63,4 +74,4 @@ function addToDOM(tag, arrayno, el, text) {
    var newText = document.createTextNode(text);
    newEl.appendChild(newText);
    spot.appendChild(newEl);
-}
+};
