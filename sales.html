@@ -14,12 +14,16 @@
         <fieldset>
             <label for="loc" title="Location">Store Location</label>
             <input type="text" name="loc" placeholder="Location" required></input>
+
             <label for="minCust" title="Minimum Customers">Minimum expected customers per hour</label>
-            <input type="number" name="minCust" placeholder="Min. Expected Customers" required></input>
+            <input type="number" step=1 min=0 name="minCust" placeholder="Min. Expected Customers" required></input>
+
             <label for="maxCust" title="Maximum Customers">Maximum expected customers per hour</label>
-            <input type="number" name="maxCust" placeholder="Max. expected customers" required></input>
+            <input type="number" step=1 min=0 name="maxCust" placeholder="Max. expected customers" required></input>
+
             <label for="aveCookieSale" title="Average Cookies Sold per Customer">Average Cookies Sold per Customer</label>
-            <input type="number" name="aveCookieSale" placeholder="Avg Cookie Sold per Customer" required></input>
+            <input type="number" step=0.1 min=0 name="aveCookieSale" placeholder="Avg Cookie Sold per Customer" required></input>
+
             <input type="submit" value="Add Location"></input>
         </fieldset>
     </form>

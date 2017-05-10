@@ -75,27 +75,36 @@ function fillTableData() {
 fillTableData();
 
 var newLoc = document.getElementById( 'addLocation' );
-newLoc.addEventListener( 'submit', addNewLocation );
+newLoc.addEventListener( 'submit', addNewLocationHandler );
 
-function addNewLocation () {
+function addNewLocationHandler() {
     event.preventDefault();
-    var locEntry = event.target.loc.value;
-    var minCustEntry = event.target.minCust.value;
-    var maxCustEntry = event.target.maxCust.value;
-    var avgCookieSaleEntry = event.target.aveCookieSale.value;
+    var form = event.target;
+    var locEntry = form.loc.value;
+    console.log('locEntry is ' + locEntry);
+    var minCustEntry = parseInt(form.minCust.value);
+    console.log('minCustEntry is ' + minCustEntry + typeof(minCustEntry));
+    var maxCustEntry = parseInt(form.maxCust.value);
+    console.log('maxCustEntry is ' + maxCustEntry + typeof(maxCustEntry));
+    var avgCookieSaleEntry = ((form.aveCookieSale.value)*1);
+    console.log('avgCookieSaleEntry is ' + avgCookieSaleEntry + typeof(avgCookieSaleEntry));
+    var newLocation = new CookieStore(locEntry, minCustEntry, maxCustEntry, avgCookieSaleEntry);
+    console.log('newLocation is ' + newLocation + typeof(newLocation));
+    newLocation.fillTable();
+    newLocation.topperBottoms();
 }
 
-// (function stretchTotalColumn() {
-//     addToDOM('thead', 0, 'th', 'Hourly Totals');
-//     addToDOM('tfoot', 0, 'th', ' ');
-//     for (var h = 0; h < hrOpen.length; h++) {
-//         var rowTotal = 0;
-//         for (var i = 0; i < stores.length; i++) {
-//             rowTotal += stores[i].hrSales[h];
-//         }
-//         addToDOM('tr', h, 'td', rowTotal);
-//     }
-// })();
+(function stretchTotalColumn() {
+    addToDOM('thead', 0, 'th', 'Hourly Totals');
+    addToDOM('tfoot', 0, 'th', ' ');
+    for (var h = 0; h < hrOpen.length; h++) {
+        var rowTotal = 0;
+        for (var i = 0; i < stores.length; i++) {
+            rowTotal += stores[i].hrSales[h];
+        }
+        addToDOM('tr', h, 'td', rowTotal);
+    }
+})();
 
 
 // (function stretchNextTableTopperBottoms() {
