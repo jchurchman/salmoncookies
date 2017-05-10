@@ -31,13 +31,13 @@ CookieStore.prototype.fillTable = function () {
 };
 
 CookieStore.prototype.topperBottoms = function () {
-        addToDOM('thead', 0, 'th', this.loc);
-        addToDOM('tfoot', 0, 'td', this.totalSales);
+    addToDOM('thead', 0, 'th', this.loc);
+    addToDOM('tfoot', 0, 'td', this.totalSales);
 }
 
-function buildTableFrame () {
+function buildTableFrame() {
     for (var g = 0; g < hrOpen.length; g++) {
-        var spot = document.getElementById('tbody');
+        var spot = document.getElementsByTagName('tbody')[0];
         var newEl = document.createElement('tr');
         newEl.setAttribute('class', 'tr');
         spot.appendChild(newEl);
@@ -65,7 +65,7 @@ var locThr = new CookieStore('Powell\'s', 11, 38, 3.7);
 var locFou = new CookieStore('St. John\'s', 20, 38, 2.3);
 var locFiv = new CookieStore('Waterfront', 2, 16, 4.6);
 
-function fillTableData () {
+function fillTableData() {
     for (var i = 0; i < stores.length; i++) {
         stores[i].fillTable();
         stores[i].topperBottoms();
@@ -74,7 +74,18 @@ function fillTableData () {
 
 fillTableData();
 
-// function stretchTotalColumn() {
+var newLoc = document.getElementById( 'addLocation' );
+newLoc.addEventListener( 'submit', addNewLocation );
+
+function addNewLocation () {
+    event.preventDefault();
+    var locEntry = event.target.loc.value;
+    var minCustEntry = event.target.minCust.value;
+    var maxCustEntry = event.target.maxCust.value;
+    var avgCookieSaleEntry = event.target.aveCookieSale.value;
+}
+
+// (function stretchTotalColumn() {
 //     addToDOM('thead', 0, 'th', 'Hourly Totals');
 //     addToDOM('tfoot', 0, 'th', ' ');
 //     for (var h = 0; h < hrOpen.length; h++) {
@@ -84,7 +95,7 @@ fillTableData();
 //         }
 //         addToDOM('tr', h, 'td', rowTotal);
 //     }
-// };
+// })();
 
 
 // (function stretchNextTableTopperBottoms() {
@@ -92,9 +103,9 @@ fillTableData();
 //     for (var i = 0; i < stores.length; i++) {
 //         addToDOM('thead', 1, 'th', stores[i].loc + ' store employee needs per hour');
 //     }
-// }
+// })();
 
-// function stretchNextTableFillTable() {
+// (function stretchNextTableFillTable() {
 //     for (var g = 0; g < hrOpen.length; g++) {
 //         var spot = document.getElementsByTagName('tbody')[1];
 //         var newEl = document.createElement('tr')
@@ -115,4 +126,5 @@ fillTableData();
 //             }
 //         }
 //     }
-// }
+// })();
+
