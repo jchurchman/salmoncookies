@@ -10,31 +10,18 @@ function CookieStore(loc, minCust, maxCust, aveCookieSale) {
     this.maxCust = maxCust;
     this.aveCookieSale = aveCookieSale;
     stores.push(this);
-};
-
-CookieStore.prototype.hrSales = [];
-
-CookieStore.prototype.totalSales = 0;
+    this.hrSales = [];
+    this.totalSales = 0;
+}
 
 CookieStore.prototype.estSales = function () {
     for (var i = 0; i < hrOpen.length; i++) {
         this.hrSales.push(Math.floor((Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.aveCookieSale));
     }
-    for (var i = 0; i < this.hrSales.length; i++) {
-        this.totalSales += this.hrSales[i];
+    for (var j = 0; j < this.hrSales.length; j++) {
+        this.totalSales += this.hrSales[j];
     }
 };
-
-(function () {
-    for (var g = 0; g < hrOpen.length; g++) {
-        var spot = document.getElementById('tbody');
-        var newEl = document.createElement('tr');
-        newEl.setAttribute('class', 'tr');
-        spot.appendChild(newEl);
-    }
-    addToDOM('thead', 0, 'th', ' ');
-    addToDOM('tfoot', 0, 'th', 'Total: ');
-})();
 
 CookieStore.prototype.fillTable = function () {
     this.estSales();
@@ -42,6 +29,27 @@ CookieStore.prototype.fillTable = function () {
         addToDOM('tr', j, 'td', this.hrSales[j]);
     }
 };
+
+CookieStore.prototype.topperBottoms = function () {
+        addToDOM('thead', 0, 'th', this.loc);
+        addToDOM('tfoot', 0, 'td', this.totalSales);
+}
+
+function buildTableFrame () {
+    for (var g = 0; g < hrOpen.length; g++) {
+        var spot = document.getElementById('tbody');
+        var newEl = document.createElement('tr');
+        newEl.setAttribute('class', 'tr');
+        spot.appendChild(newEl);
+    }
+    for (var h = 0; h < hrOpen.length; h++) {
+        addToDOM('tr', h, 'td', hrOpen[h]);
+    }
+    addToDOM('thead', 0, 'th', ' ');
+    addToDOM('tfoot', 0, 'th', 'Total: ');
+}
+
+buildTableFrame();
 
 function addToDOM(tag, arrayno, el, text) {
     var spot = document.getElementsByTagName(tag)[arrayno];
@@ -51,23 +59,20 @@ function addToDOM(tag, arrayno, el, text) {
     spot.appendChild(newEl);
 }
 
-function topperBottoms() {
-    for (var i = 0; i < stores.length; i++) {
-        addToDOM('thead', 0, 'th', stores[i].loc);
-        addToDOM('tfoot', 0, 'td', stores[i].totalSales);
-    }
-};
-
-
 var locOne = new CookieStore('PDX Airport', 23, 65, 6.3);
 var locTwo = new CookieStore('Pioneer Square', 3, 24, 1.2);
 var locThr = new CookieStore('Powell\'s', 11, 38, 3.7);
 var locFou = new CookieStore('St. John\'s', 20, 38, 2.3);
 var locFiv = new CookieStore('Waterfront', 2, 16, 4.6);
 
-locOne.fillTable();
-locTwo.fillTable();
-locThr.fillTable();
+function fillTableData () {
+    for (var i = 0; i < stores.length; i++) {
+        stores[i].fillTable();
+        stores[i].topperBottoms();
+    }
+}
+
+fillTableData();
 
 // function stretchTotalColumn() {
 //     addToDOM('thead', 0, 'th', 'Hourly Totals');
