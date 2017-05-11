@@ -1,4 +1,37 @@
 * {
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
+    color: hsl(180, 25%, 25%);
+}
+
+body {
+    background-color: hsla(19, 90%, 75%, 1);
+}
+header, h1, h2, h3 {
+    color: hsl(180, 80%, 15%);
     font-family: 'Montserrat', sans-serif;
-    font-family: 'Roboto', sans-serif;
+}
+
+.header, .footer {
+    background-color: hsla(19, 80%, 65%, 1);
+}
+
+ul, li {
+    color: lightgray;
+    list-style-type: none;
+    background-color: hsl(180, 80%, 15%);
+    border: 1px hsl(180, 80%, 15%) solid;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+li {
+    text-align: center;
+    width: 10%;
+    height: 85%;
 }
