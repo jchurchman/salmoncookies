@@ -32,10 +32,14 @@ div.logo {
 .header {
     padding: 25px 0 0 0;
 }    
-
+/*
 .footer {
     margin: 0;
 }
+
+.footer * {
+    display: inline-block;
+}*/
 
 .navmenu * {
     list-style-type: none;
@@ -60,6 +64,10 @@ header ul.navmenu {
     margin: 10px 20px;
 }
 
+/*footer ul.navmenu {
+    max-width: 40%;
+}*/
+
 footer ul.navmenu * {
     margin: 0;
 }
@@ -79,6 +87,9 @@ li.footernavlist {
 
 }
 
+article.location {
+    display: inline-block;
+}
     /*
     font-family: 'Roboto', sans-serif;
     margin: 0;
