@@ -1,11 +1,105 @@
 * {
-   color: darkslategray;
-   font-family: Georgia, 'Times New Roman', Times, serif;
-   background-color: #FC8F7B;
+    color: hsl(180, 25%, 25%);
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
 }
 
-li, table {
-   color: white;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   background-color: #125267;
+body {
+    background-color: hsla(19, 90%, 75%, 1);
+    /*max-width: 95%;*/
 }
+
+div.logo {
+    text-align: center;
+    margin: 0% 20%;
+    padding: 3% 0;
+    max-width: 65%;
+    border: 3px hsl(180, 80%, 15%) solid;
+    border-radius: 200px 130px;
+    -moz-border-radius: 200px 130px;
+    -webkit-border-radius: 200px 130px;
+}
+
+.headerlogo {
+    max-width: 60%
+}
+
+.header, .footer {
+    background-color: hsla(19, 80%, 65%, 1);
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    padding: 25px 0 0 0;
+}    
+/*
+.footer {
+    margin: 0;
+}
+
+.footer * {
+    display: inline-block;
+}*/
+
+.navmenu * {
+    list-style-type: none;
+    color: lightgray;
+    display: inline-block;
+    text-align: center;
+
+}
+
+ul.navmenu {
+    border: 3px hsl(180, 80%, 15%) solid;
+    background-color: hsl(180, 90%, 10%); /* Needs to cover whole menu bar */
+}
+
+header ul.navmenu {
+    margin: 3% 0 0 0;
+}
+
+.navmenu li {
+    border: 3px hsl(180, 80%, 15%) outset;
+    width: 18%;
+    margin: 10px 20px;
+}
+
+/*footer ul.navmenu {
+    max-width: 40%;
+}*/
+
+footer ul.navmenu * {
+    margin: 0;
+}
+
+img.footerlogo {
+    display: inline-block;
+    width: 36%;
+    margin: 10px 20px;
+    border: 3px hsl(180, 80%, 15%) solid;
+    border-radius: 200px 130px;
+    -moz-border-radius: 200px 130px;
+    -webkit-border-radius: 200px 130px;
+    z-index: 1000;
+}
+
+li.footernavlist {
+
+}
+
+article.location {
+    display: inline-block;
+}
+    /*
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 1960px;
+    box-sizing: border-box;
+
+header, h1, h2, h3 {
+    color: hsl(180, 80%, 15%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+*/
