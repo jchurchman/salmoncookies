@@ -134,15 +134,17 @@ section.places lh {
 
 article.location {
     width: 15%;
+    font-size: 100%;
     text-align: center;
     display: inline-block;
     margin: 0 0.5%;
     padding: 10px;
     border: 3px hsl(180, 80%, 15%) double;
     background-color: hsla(19, 80%, 65%, 1);  
+    min-width: 135px;
 }
 
-.storeinfo {
+ul.storeinfo {
     list-style-type: none;
     margin: 0;
 }
