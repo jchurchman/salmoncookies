@@ -94,9 +94,31 @@ main {
     margin: 0 10%;
 }
 
+section.about img {
+    max-width: 30%;
+}
+
+section.about img p {
+    display: inline-block;
+}
+
+img.frostedcookie {
+    float: left;
+}
+
+p.aboutcookies {
+    float: right;
+    max-width: 65%;
+}
+
+hr {
+    border-color: hsl(180, 80%, 15%);
+}
+
+/*                            Location Listing Styles */
 section.places {
     text-align: center;
-    margin: 50px auto;
+    margin: 50px 0;
     line-height: 1;
 }
 
