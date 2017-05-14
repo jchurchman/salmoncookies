@@ -101,21 +101,19 @@ section.about {
 section.about img {
     max-width: 35%;
     vertical-align: top;
+    min-width: 145px;
 }
 
 img#frostedcookie {
     float: left;
     margin-right: 1rem;
+    /*width: 45%*/
 }
 
 img#family {
     vertical-align: top;
     float: right;
     margin-left: 1rem;
-}
-
-p.aboutcookies {
-    max-width: 60%;
 }
 
 hr {
