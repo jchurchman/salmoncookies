@@ -91,24 +91,31 @@ main {
     max-width: 100%;
     min-width: 400px;
     width: 80%;
-    margin: 0 10%;
+    margin: 5% 10%;
+}
+
+section.about {
+    width: 100%;
 }
 
 section.about img {
-    max-width: 30%;
+    max-width: 35%;
+    vertical-align: top;
 }
 
-section.about img p {
-    display: inline-block;
-}
-
-img.frostedcookie {
+img#frostedcookie {
     float: left;
+    margin-right: 1rem;
+}
+
+img#family {
+    vertical-align: top;
+    float: right;
+    margin-left: 1rem;
 }
 
 p.aboutcookies {
-    float: right;
-    max-width: 65%;
+    max-width: 60%;
 }
 
 hr {
