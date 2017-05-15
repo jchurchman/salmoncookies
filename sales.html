@@ -2,14 +2,30 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./css/skeleton.css" />
     <link rel="stylesheet" type="text/css" href="./css/sales.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">  
+    <title>Pat's Salmon Cookies Sales Data</title>
 </head>
 
 <body>
+
     <header>
-        <h1>Salmon Cookies</h1>
-        <img src="./salmon.png" />
+        <div class="logo">
+            <img class="headerlogo" src="./salmonlogoimage.png" alt="Salmon logo" />
+            <h1 class="headerwords">Pat's Salmon Cookies</h1>
+        </div>
+        <ul class="navmenu">
+
+            <a href="./index.html"><li class="headernavlist" id="homelink">Home</li></a>
+            <a href="./shop.html"><li class="headernavlist" id="shoplink">Shop</li></a>
+            <a href="./contact.html"><li class="headernavlist" id="contactlink">Contact</li></a>
+
+        </ul>
+
     </header>
+
     <form id="addLocation" action="#">
         <fieldset>
             <label for="loc" title="Location">Store Location</label>
@@ -43,6 +59,15 @@
         <tfoot>
         </tfoot>
     </table>
+    <footer>
+
+        <a href="sales.html">
+            <img class="footerlogo" src="./chinook.jpg" alt="Chinook salmon illustration" id="footerfish" />
+        </a>
+
+        <p>Copyright Joe Churchman 2017</p>
+
+    </footer>
     <script type="text/javascript" src="js/sales.js"></script>
 </body>
 
